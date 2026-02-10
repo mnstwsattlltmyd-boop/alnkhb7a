@@ -1,33 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>مكتب النخبة | استخراج تصريح زواج سعودي وتجنيس المواليد</title>
-    <meta name="description" content="مكتب النخبة المتخصص في تعقيب واستخراج تصاريح الزواج من أجنبية، وتصحيح الأوضاع، وتجنيس المواليد. استشارات قانونية سريعة وموثوقة في المملكة العربية السعودية.">
-    <meta name="keywords" content="تصريح زواج، استخراج تصريح زواج، معقب تصاريح، تجنيس مواليد، زواج سعودي من أجنبية، مكتب تعقيب">
-    <link rel="canonical" href="https://yourdomain.com/" />
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "مكتب النخبة للمعاملات القانونية",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "SA"
-      },
-      "telephone": "+966568230165",
-      "url": "https://yourdomain.com"
-    }
-    </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1e3a5f; /* كحلي ملكي مثل مواقع التعقيب الكبرى */
-            --accent: #c5a059;  /* ذهبي للاحترافية */
+            --primary: #1e3a5f;
+            --accent: #c5a059;
             --white: #ffffff;
             --bg-light: #f4f7f9;
             --text-dark: #2c3e50;
@@ -41,10 +23,9 @@
             color: var(--text-dark);
         }
 
-        /* Nav Bar */
         nav {
             background: var(--white);
-            padding: 15px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -52,6 +33,19 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
         }
 
         .logo {
@@ -71,7 +65,6 @@
             font-size: 14px;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(30, 58, 95, 0.95), rgba(30, 58, 95, 0.8)), 
                         url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1350&q=80');
@@ -81,24 +74,10 @@
             color: white;
         }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 20px; line-height: 1.4; }
+        .hero p { font-size: 1.3rem; margin-bottom: 35px; opacity: 0.9; }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 35px;
-            opacity: 0.9;
-        }
-
-        .cta-group {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+        .cta-group { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
 
         .btn {
             padding: 15px 35px;
@@ -113,9 +92,7 @@
 
         .btn-main { background: var(--accent); color: var(--primary); }
         .btn-secondary { background: #25d366; color: white; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        /* Services Section */
         .section { padding: 80px 5%; }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { font-size: 2.2rem; color: var(--primary); }
@@ -129,27 +106,16 @@
 
         .service-card {
             background: white;
-            padding: 0 0 40px 0; /* تعديل الحواف لتناسب الصورة */
+            padding: 0 0 40px 0;
             border-radius: 12px;
             text-align: center;
             border: 1px solid #eee;
             transition: 0.3s;
-            overflow: hidden; /* لمنع الصورة من الخروج عن الحواف */
+            overflow: hidden;
         }
 
-        .service-card:hover { border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .service-img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 20px; }
 
-        .service-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 { padding: 0 25px; }
-        .service-card p { padding: 0 25px; }
-
-        /* Form Section */
         .form-container {
             background: var(--white);
             max-width: 600px;
@@ -181,7 +147,54 @@
             cursor: pointer;
         }
 
-        /* Floating WhatsApp */
+        /* تنسيق النافذة المنبثقة (Modal) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: slideDown 0.4s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-icon {
+            font-size: 50px;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .close-modal {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-family: 'Tajawal';
+            font-weight: bold;
+        }
+
         .whatsapp-fixed {
             position: fixed;
             bottom: 30px;
@@ -205,26 +218,29 @@
             text-align: center;
             padding: 40px 5%;
         }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
-            .section { padding: 50px 5%; }
-        }
     </style>
 </head>
 <body>
 
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h3>تم الإرسال بنجاح!</h3>
+            <p>شكراً لتواصلك مع مكتب النخبة. سيقوم فريقنا بالرد عليك في أقرب وقت ممكن.</p>
+            <button class="close-modal" onclick="closeModal()">إغلاق</button>
+        </div>
+    </div>
+
     <nav>
-        <a href="#" class="logo">مكتب النخبة للمعاملات</a>
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="شعار مكتب النخبة" class="logo-img">
+            <span class="logo">مكتب النخبة</span>
+        </a>
         <a href="tel:+966568230165" class="nav-phone">اتصل بنا: 0568230165</a>
     </nav>
 
     <section class="hero">
-        <h1>مكتب النخبة
-نساعدك بخبرتنا في ترتيب المستندات و فهم الاجراءات الرسمية
-
-</h1>
+        <h1>مكتب النخبة نساعدك بخبرتنا في ترتيب المستندات وفهم الاجراءات الرسمية</h1>
         <p>استشارات قانونية متخصصة لضمان إتمام معاملاتك وتجنيس المواليد بسرعة ودقة متناهية.</p>
         <div class="cta-group">
             <a href="#contact" class="btn btn-main">طلب استشارة مجانية</a>
@@ -238,53 +254,46 @@
             <div></div>
         </div>
         <div class="services-grid">
-    <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80" alt="تصاريح زواج" class="service-img">
-        <h3>تصاريح الزواج</h3>
-        <p>استخراج تصريح زواج سعودي من أجنبية والعكس، وتجهيز الملفات للجهات المختصة باحترافية.
-        تشمل الإجراءات إعداد الطلب إلكترونيًا، إرفاق المستندات المطلوبة، وانتظار الموافقة من وزارة الداخلية أو الإمارة المعنية. نحن نضمن لك متابعة دقيقة لكل خطوة لتسريع المعاملة والالتزام بالشروط النظامية.</p>
-    </div>
-    
-    <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1591622414912-34f2a8f8172e?auto=format&fit=crop&w=600&q=80" alt="تجنيس المواليد" class="service-img">
-        <h3>تجنيس المواليد</h3>
-        <p>متابعة دقيقة لإجراءات تجنيس المواليد في المملكة وضمان استيفاء كافة الشروط النظامية.
-        نقدم خدمة تعقيب معاملات التجنيس للمستحقين وفق النظام السعودي، سواء كنت تسعى لتجنيس الأبناء أو مواليد المملكة. نتابع ملفك خطوة بخطوة، من إعداد المستندات حتى تقديم الطلب للجهات الرسمية، مع التزامنا بالسرية والمصداقية.</p>
-    </div>
-
-    <div class="service-card">
-        <img src="mmoo.jpeg" alt="تخليص معاملات" class="service-img">
-        <h3>تخليص معاملات (تصحيح الأوضاع)</h3>
-        <p>حلول قانونية متكاملة لمن تزوجوا بدون تصريح، وتعديل الأوضاع وفق الأنظمة المعمول بها.</p>
-    </div>
-</div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80" alt="تصاريح زواج" class="service-img">
+                <h3>تصاريح الزواج</h3>
+                <p>استخراج تصريح زواج سعودي من أجنبية والعكس.</p>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1591622414912-34f2a8f8172e?auto=format&fit=crop&w=600&q=80" alt="تجنيس مواليد" class="service-img">
+                <h3>تجنيس المواليد</h3>
+                <p>متابعة دقيقة لإجراءات تجنيس المواليد في المملكة.</p>
+            </div>
+            <div class="service-card">
+                <img src="mmoo.jpeg" alt="تصحيح الأوضاع" class="service-img">
+                <h3>تصحيح الأوضاع</h3>
+                <p>حلول قانونية متكاملة لمن تزوجوا بدون تصريح.</p>
+            </div>
+        </div>
     </section>
 
     <section id="contact" class="section" style="background: #edf2f7;">
         <div class="section-header">
             <h2>تواصل معنا الآن</h2>
-            <p>سيقوم أحد مستشارينا بالرد عليك في أسرع وقت</p>
         </div>
         <div class="form-container">
-            <form action="#">
-                <input type="text" placeholder="الاسم الكامل" required>
-                <input type="tel" placeholder="رقم الجوال" required>
-                <select required>
+            <form id="elite-form" action="https://formspree.io/f/xbdadgbn" method="POST">
+                <input type="text" name="name" placeholder="الاسم الكامل" required>
+                <input type="tel" name="phone" placeholder="رقم الجوال" required>
+                <select name="service" required>
                     <option value="">نوع المعاملة المطلوبة</option>
-                    <option value="1">استخراج تصريح زواج</option>
-                    <option value="2">تجنيس مواليد</option>
-                    <option value="3">استشارة قانونية</option>
-                    <option value="4">أخرى</option>
+                    <option value="تصريح زواج">استخراج تصريح زواج</option>
+                    <option value="تجنيس">تجنيس مواليد</option>
+                    <option value="استشارة">استشارة قانونية</option>
                 </select>
-                <textarea rows="4" placeholder="اشرح لنا حالتك باختصار"></textarea>
-                <button type="submit" class="submit-btn">إرسال الطلب</button>
+                <textarea name="message" rows="4" placeholder="اشرح لنا حالتك باختصار"></textarea>
+                <button type="submit" id="submit-btn" class="submit-btn">إرسال الطلب</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>مكتب النخبة للاستشارات وتخليص المعاملات القانونية</p>
-        <p style="opacity: 0.6; font-size: 14px; margin-top: 10px;">جميع الحقوق محفوظة © 2026</p>
+        <p>جميع الحقوق محفوظة لمكتب النخبة © 2026</p>
     </footer>
 
     <a href="https://wa.me/966568230165" class="whatsapp-fixed" target="_blank">
@@ -293,6 +302,52 @@
         </svg>
     </a>
 
+    <script>
+        const form = document.getElementById("elite-form");
+        const btn = document.getElementById("submit-btn");
+        const modal = document.getElementById("successModal");
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            
+            btn.disabled = true;
+            btn.innerHTML = "جاري الإرسال...";
+            
+            const formData = new FormData(form);
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // إظهار النافذة المنبثقة عند النجاح
+                    modal.style.display = "flex";
+                    form.reset();
+                } else {
+                    alert("عذراً، حدث خطأ أثناء الإرسال. يرجى المحاولة لاحقاً.");
+                }
+            }).catch(error => {
+                alert("حدث خطأ في الاتصال، يرجى التحقق من الإنترنت.");
+            }).finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = "إرسال الطلب";
+            });
+        };
+
+        // إغلاق النافذة عند الضغط خارجها
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+
 </body>
 </html>
-
