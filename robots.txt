@@ -1,0 +1,3 @@
+﻿User-agent: *
+Allow: /
+Sitemap: https://alnkhb7a.dev/sitemap.xml
